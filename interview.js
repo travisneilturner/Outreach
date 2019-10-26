@@ -48,6 +48,9 @@ LinkedList.prototype.search = function(text) {
     }
 
     if (found) {
+      let startNode = this.searchNode
+      let offset = this.offset
+
       for(let i = 1; i < text.length; i++) {
         scanned = this.nextChar()
         if(scanned === '') {
@@ -61,6 +64,9 @@ LinkedList.prototype.search = function(text) {
           return true
         }
       }
+      this.searchNode = startNode
+      this.offset = offset
+      scanned = this.nextChar()
     } else {
       scanned = this.nextChar()
     }
@@ -73,11 +79,14 @@ let myList = new LinkedList({
   next: null,
   value: 'jksahd'
 })
-  
+
 myList.add('Hell')
-myList.add('o My na')
+myList.add('o')
+myList.add(' My na')
 myList.add('me is N')
 myList.add('eil. Nice to meet you can I tell you about the weather how is your family mine is great')
+myList.add('aba')
+myList.add('bac')
 
 console.log(myList)
 console.log(myList.search('eet yo'))
@@ -86,3 +95,4 @@ console.log(myList.search('lo'))
 console.log(myList.search('zzz'))
 console.log(myList.search('jksahdHello My name is Neil. Nice to meet you can I tell you about the weather how is your family mine is great'))
 console.log(myList.search('jksahdHello My name is Neil. Nice to meet you can I tell you about the weather how is your family mine is great!'))
+console.log(myList.search('abac'))
