@@ -7,7 +7,7 @@ let LinkedList = function(node) {
 } 
 
 LinkedList.prototype.nextChar = function() {
-  if(this.searchNode == null) {
+  if(this.searchNode === null) {
     return ''
   }
 
@@ -50,14 +50,14 @@ LinkedList.prototype.search = function(text) {
     if (found) {
       for(let i = 1; i < text.length; i++) {
         scanned = this.nextChar()
-        if(scanned == '') {
+        if(scanned === '') {
           return false
         }
         if(scanned != text[i]) {
           found = false
           break
         }
-        if(i == text.length-1) {
+        if(i === text.length-1) {
           return true
         }
       }
